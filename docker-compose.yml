@@ -1,0 +1,10 @@
+services:
+  java-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8079:8087"
+    env_file:
+      - ./.env
