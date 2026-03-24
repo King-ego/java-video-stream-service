@@ -5,7 +5,7 @@ services:
       - "25433:5432"
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${USERNAME_DB
+      POSTGRES_USER: ${USERNAME_DB}
       POSTGRES_PASSWORD: ${USERNAME_DB}
       POSTGRES_DB: ${DB_NAME}
   java-app:
