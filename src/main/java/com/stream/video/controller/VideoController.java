@@ -1,6 +1,6 @@
-package com.streem.video.controller;
+package com.stream.video.controller;
 
-import com.streem.video.services.VideoService;
+import com.stream.video.services.VideoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
