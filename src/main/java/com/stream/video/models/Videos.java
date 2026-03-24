@@ -1,10 +1,8 @@
 package com.stream.video.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -12,7 +10,22 @@ import java.util.UUID;
 public class Videos {
     @Id
     @GeneratedValue
-    UUID id;
-    String title;
-    String description;
+    private UUID id;
+    private String title;
+    private String description;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    public Videos() {}
+
+    @PrePersist
+    protected void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }
