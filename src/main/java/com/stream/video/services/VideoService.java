@@ -1,4 +1,4 @@
-package com.streem.video.services;
+package com.stream.video.services;
 
 import org.springframework.stereotype.Service;
 
