@@ -28,4 +28,12 @@ public class Videos {
     protected void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 }
