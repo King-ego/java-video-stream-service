@@ -3,6 +3,7 @@ package com.stream.video.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -15,6 +16,10 @@ public class Videos {
     private UUID id;
     private String title;
     private String description;
+    private String filename;
+    private String driveFileId;
+    private String contentType;
+    private BigInteger size;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
