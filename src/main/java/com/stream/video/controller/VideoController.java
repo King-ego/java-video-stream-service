@@ -1,11 +1,12 @@
 package com.stream.video.controller;
 
+import com.stream.video.models.Videos;
 import com.stream.video.services.VideoService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/videos")
@@ -18,15 +19,18 @@ class VideoController {
     }
 
     @GetMapping
-    public String getVideos(MultipartFile file) {
-        this.videoService.processVideo();
-        return "List of videos";
+    public ResponseEntity<List<Videos>> getVideos() {
+        return ResponseEntity.ok(videoService.listAll());
     }
 
     @PostMapping
-    public String uploadVideo(MultipartFile file) {
-        this.videoService.processVideo();
-        return "Upload of videos";
+    public ResponseEntity<Videos> uploadVideo(@RequestParam("file") MultipartFile file) {
+        try {
+            Videos video = videoService.upload(file);
+            return ResponseEntity.ok(video);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 }
