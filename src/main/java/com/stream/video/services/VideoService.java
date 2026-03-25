@@ -11,8 +11,6 @@ import java.util.UUID;
 
 @Service
 public class VideoService {
-    // Por enquanto, vou fazer uma versão simples sem o Drive
-
     public Videos upload(MultipartFile file) throws Exception {
         Videos video = new Videos();
         video.setId(UUID.randomUUID());
