@@ -5,33 +5,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.math.BigInteger;
+import java.util.List;
 import java.util.UUID;
 
 @Service
 public class VideoService {
+    // Por enquanto, vou fazer uma versão simples sem o Drive
+
     public Videos upload(MultipartFile file) throws Exception {
-
-        // 1. Upload pro Drive
-        File fileMetadata = new File();
-        fileMetadata.setName(file.getOriginalFilename());
-
-        InputStreamContent mediaContent =
-                new InputStreamContent(file.getContentType(), file.getInputStream());
-
-        File uploaded = driveService.files()
-                .create(fileMetadata, mediaContent)
-                .setFields("id")
-                .execute();
-
-        // 2. Salva no banco
         Videos video = new Videos();
         video.setId(UUID.randomUUID());
         video.setTitle(file.getOriginalFilename());
         video.setFilename(file.getOriginalFilename());
-        video.setDriveFileId(uploaded.getId());
         video.setContentType(file.getContentType());
-        video.setSize(file.getSize());
+        video.setSize(BigInteger.valueOf(file.getSize()));
 
         return videoRepository.save(video);
+    }
+
+    public List<Videos> listAll() {
+        return videoRepository.findAll();
     }
 }
