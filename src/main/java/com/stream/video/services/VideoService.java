@@ -19,12 +19,13 @@ public class VideoService {
     }
 
     public Videos upload(MultipartFile file) throws Exception {
-        Videos video = new Videos();
-        video.setId(UUID.randomUUID());
-        video.setTitle(file.getOriginalFilename());
-        video.setFilename(file.getOriginalFilename());
-        video.setContentType(file.getContentType());
-        video.setSize(BigInteger.valueOf(file.getSize()));
+        Videos video = Videos.builder()
+                .title(file.getOriginalFilename())
+                .description(file.getOriginalFilename())
+                .filename(file.getOriginalFilename())
+                .contentType(file.getContentType())
+                .size(BigInteger.valueOf(file.getSize()))
+                .build();
 
         return videoRepository.save(video);
     }
