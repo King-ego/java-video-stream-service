@@ -1,6 +1,7 @@
 package com.stream.video.services;
 
 import com.stream.video.models.Videos;
+import com.stream.video.repositories.VideoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +12,12 @@ import java.util.UUID;
 
 @Service
 public class VideoService {
+    private final VideoRepository videoRepository;
+
+    public VideoService(VideoRepository videoRepository) {
+        this.videoRepository = videoRepository;
+    }
+
     public Videos upload(MultipartFile file) throws Exception {
         Videos video = new Videos();
         video.setId(UUID.randomUUID());
