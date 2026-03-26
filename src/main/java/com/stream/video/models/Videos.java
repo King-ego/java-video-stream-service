@@ -1,6 +1,8 @@
 package com.stream.video.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigInteger;
@@ -10,6 +12,8 @@ import java.util.UUID;
 @Entity
 @Table(name = "videos")
 @Data
+@Builder
+@AllArgsConstructor
 public class Videos {
     @Id
     @GeneratedValue
