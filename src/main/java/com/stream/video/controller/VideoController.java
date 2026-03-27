@@ -32,5 +32,4 @@ class VideoController {
             return ResponseEntity.badRequest().build();
         }
     }
-
 }
