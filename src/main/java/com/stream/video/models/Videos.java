@@ -39,5 +39,4 @@ public class Videos {
     protected void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
 }
