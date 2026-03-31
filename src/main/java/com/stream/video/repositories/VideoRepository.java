@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface VideoRepository extends JpaRepository<@NonNull Videos, @NonNull UUID>{};
+public interface VideoRepository extends JpaRepository<@NonNull Videos, @NonNull UUID>{}
 
