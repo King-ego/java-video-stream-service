@@ -3,6 +3,7 @@ package com.stream.video.controller;
 import com.stream.video.models.Videos;
 import com.stream.video.services.VideoService;
 import lombok.NonNull;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,4 +36,8 @@ class VideoController {
     }
 
 
+    @PatchMapping
+    public void updateVideo(@RequestBody String fieldName, @Param("videos_id") String videos_id) {
+        this.videoService.updateVideoParse(videos_id, fieldName);
+    }
 }
