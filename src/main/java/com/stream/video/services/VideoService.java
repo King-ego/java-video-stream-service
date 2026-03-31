@@ -34,7 +34,7 @@ public class VideoService {
         return videoRepository.findAll();
     }
 
-    public void updateVideoFilename(String videoId, String newFilename) {
+    public void updateVideoParse(String videoId, String newFilename) {
         videoRepository.updateParseFields(videoId, newFilename);
     }
 }
