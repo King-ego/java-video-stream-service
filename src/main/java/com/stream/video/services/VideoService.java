@@ -27,14 +27,14 @@ public class VideoService {
                 .size(BigInteger.valueOf(file.getSize()))
                 .build();
 
-        return videoRepository.save(video);
+        return this.videoRepository.save(video);
     }
 
     public List<Videos> listAll() {
-        return videoRepository.findAll();
+        return this.videoRepository.findAll();
     }
 
     public void updateVideoParse(String videoId, String newFilename) {
-        videoRepository.updateParseFields(videoId, newFilename);
+        this.videoRepository.updateParseFields(videoId, newFilename);
     }
 }
