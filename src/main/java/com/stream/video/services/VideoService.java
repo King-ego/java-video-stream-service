@@ -33,4 +33,8 @@ public class VideoService {
     public List<Videos> listAll() {
         return videoRepository.findAll();
     }
+
+    public void updateVideoFilename(String videoId, String newFilename) {
+        videoRepository.updateParseFields(videoId, newFilename);
+    }
 }
