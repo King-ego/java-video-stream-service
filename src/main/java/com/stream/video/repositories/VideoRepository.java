@@ -19,4 +19,3 @@ public interface VideoRepository extends JpaRepository<@NonNull Videos, @NonNull
             @Nullable String fieldName
     );
 }
-
