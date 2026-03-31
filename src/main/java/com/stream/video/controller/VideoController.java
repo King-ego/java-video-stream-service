@@ -2,6 +2,7 @@ package com.stream.video.controller;
 
 import com.stream.video.models.Videos;
 import com.stream.video.services.VideoService;
+import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,12 +20,12 @@ class VideoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Videos>> getVideos() {
+    public ResponseEntity<@NonNull List<Videos>> getVideos() {
         return ResponseEntity.ok(videoService.listAll());
     }
 
     @PostMapping
-    public ResponseEntity<Videos> uploadVideo(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity< @NonNull Videos> uploadVideo(@RequestParam("file") MultipartFile file) {
         try {
             Videos video = videoService.upload(file);
             return ResponseEntity.ok(video);
@@ -32,4 +33,6 @@ class VideoController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+
 }
