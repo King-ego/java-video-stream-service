@@ -1,6 +1,7 @@
 package com.stream.video.repositories;
 
 import com.stream.video.models.Videos;
+import jakarta.annotation.Nullable;
 import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -15,7 +16,7 @@ public interface VideoRepository extends JpaRepository<@NonNull Videos, @NonNull
     @Query("UPDATE Videos v SET v.filename = COALESCE(:fieldName, v.filename) WHERE v.id = :video_id")
     void updateParseFields(
             String video_id,
-            String fieldName
+            @Nullable String fieldName
     );
 }
 
