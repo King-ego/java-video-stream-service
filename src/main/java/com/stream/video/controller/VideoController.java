@@ -35,7 +35,6 @@ class VideoController {
         }
     }
 
-
     @PatchMapping
     public void updateVideo(@RequestBody String fieldName, @Param("videos_id") String videos_id) {
         this.videoService.updateVideoParse(videos_id, fieldName);
